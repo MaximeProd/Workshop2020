@@ -85,7 +85,8 @@ function updateListe(PDO $bdd,$fromTable,Array $args,$idModif) {
 function getInfoUser($bdd, $user_id){
     // récupère les informations d'un utilisateur à partir de son identifiant, ainsi que les infos de sa ville
 
-    $query = "SELECT * FROM user AS u, city AS c WHERE c.c_id = u.u_id";
+    $query = "SELECT * FROM user AS u, city AS c, fenetre AS f, cardinalite AS card 
+                WHERE c.c_id = u.c_id AND f.u_id = u.u_id AND card.card_id = f.card_id";
 
 // si on rentre pas quelque chose de vide ou égal à 0
     if (!empty($city_name)) {
