@@ -17,6 +17,11 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+@font-face {
+    font-family: "Quicksand" ;
+    src: url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900&subset=latin-ext%27");
+}
+
 body {
     align-items: center;
     background-color: var(--white);
@@ -28,6 +33,7 @@ body {
     display: grid;
     height: 100vh;
     place-items: center;
+    font-family:"Quicksand", serif;
 }
 
 .form__title {
