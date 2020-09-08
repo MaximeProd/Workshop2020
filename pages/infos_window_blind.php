@@ -13,8 +13,14 @@
 <h4>
     <?php
 
-    if (isset($_POST['city_name'])) {
-        $city_name = $_POST['city_name'];
+    require_once("Fonction.php");
+
+    $bdd = getDataBase();
+    $liste = getListe($bdd, "fenetre");
+
+    $city_name = getCityById($bdd);
+
+    if (isset($city_name)) {
         echo '<h1>
             <hr/>
             <font color="black">

@@ -81,3 +81,43 @@ function updateListe(PDO $bdd,$fromTable,Array $args,$idModif) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+function getInfoUser($bdd, $user_id){
+    // récupère les informations d'un utilisateur à partir de son identifiant, ainsi que les infos de sa ville
+
+    $query = "SELECT * FROM user AS u, city AS c WHERE c.c_id = u.u_id";
+
+// si on rentre pas quelque chose de vide ou égal à 0
+    if (!empty($city_name)) {
+        $query .= " AND u.u_id LIKE :u_id";
+    }
+    $user = null;
+    $statement = $bdd->prepare($query);
+
+    // pour afficher toute la liste
+    if (!empty($city_name)) {
+        $user_id = $user_id . '%';
+        $statement->bindParam(':u_id', $user_id);
+    }
+
+    if ($statement->execute()) {
+        $user = $statement->fetchAll(PDO::FETCH_OBJ);
+        // Fermeture de la ressource
+        $statement->closeCursor();
+    }
+    return $user;
+}
+
+function getCityById ($bdd) {
+    // pour récupérer le NOM et uniquement le nom de la ville d'un utilisateur connecté
+    if(!empty($bdd)) {
+        $cities = getInfoUser($bdd, 1); // TODO : changer le 1 avec l'id de l'utilister
+        if (!empty($cities)) {
+            foreach ($cities as $city) {
+                if ($city->c_id == 1){ // TODO : changer l'id et mettre l'id de la ville de l'utilisteur
+                    return  $city->c_name;
+                }
+            }
+        }
+    }
+}
