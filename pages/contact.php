@@ -1,5 +1,5 @@
 <?php
-require 'patern/Head.php';
+require ('patern/Head.php');
 
 echo '
 

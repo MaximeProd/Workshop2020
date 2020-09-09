@@ -19,7 +19,7 @@ echo '<!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>test</title>
+    <title>Smart Celsius</title>
     <link rel="stylesheet" href="../css/header.css">
   </head>
   <body>
