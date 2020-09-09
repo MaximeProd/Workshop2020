@@ -7,6 +7,7 @@ require 'patern/Head.php';
 
 
 echo' 
+  <link rel="stylesheet" href="../css/LoginRegister.css"
   <body>
     <div class="container right-panel-active">
       <!-- Sign Up -->
@@ -47,8 +48,7 @@ echo'
         </div>
       </div>
     </div>
-    <script src="../../Javascript/Js.js" charset="utf-8"></script>
-
+    <script src="../Javascript" charset="utf-8"></script>
   </body>
  </html>
 ';
