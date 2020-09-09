@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900&subset=latin-ext');
 
 body,html{margin:0;padding:0;
-    background: #0000FF;
+    background: #b2cbd9;
     font-family:'Quicksand';
 }
 
@@ -35,7 +35,7 @@ body,html{margin:0;padding:0;
 }
 
 .static {
-    background: #0000FF;
+    background: #b2cbd9;
 }
 
 .bg1::after {
@@ -45,11 +45,18 @@ body,html{margin:0;padding:0;
 .bg2::after {
     background-image: url('pira.jpg');
 }
+
+#black {
+    color:#000a0f;
+    text-shadow: 0 0 5px #fff;
+}
+
 h1{
     font-size: 100px;
 }
 h2{
     font-size: 50px;
+    margin-right: 40px;
 }
 p{
     font-size: 25px;
