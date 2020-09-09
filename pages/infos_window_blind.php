@@ -293,7 +293,7 @@ if (isset($user_id)){
               </table>";
 
     }
-        echo"    <div> <input type=\"button\" value=\"Ajouter une fenêtre\" class=\"fenetre\"> </div>"
+        echo"    <div> <a href='pageWindow.php' type=\"button\" value=\"Ajouter une fenêtre\" class=\"fenetre\">Ajouter une fenêtre</a></div>"
     ?>
 
 </body>
