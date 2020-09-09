@@ -14,7 +14,7 @@ if(isset($bdd)){
             if(count($liste)==1 && password_verify($password,$liste[0]->u_password)){
                 $idClient = $liste[0]->u_id;
                 $_SESSION['idClient'] = $idClient;
-                header('Location: ../index.php');
+
             } elseif (count($liste) > 1){
                 $_SESSION['idClient'] = $idClient;
                 //Erreur : Il existe plusieurs client avec la même adresse mail!! Grosse erreur d'identification!
@@ -32,9 +32,11 @@ if(isset($bdd)){
 
 }else {
     $_SESSION["erreur"] = 7;
-    header('Location: ../Inscription.php');
+
 }
 
 if ($_SESSION["erreur"] != null){
-
+    header('Location: ../Inscription.php');
+} else {
+    header('Location: ../index.php');
 }
