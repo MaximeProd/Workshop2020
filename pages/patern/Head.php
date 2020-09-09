@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'Fonction.php';
+require_once( 'Fonction.php');
 $idClient = null;
 $Compte = 'Se connecter/Inscription';
 $lien = "LoginRegister.php";
@@ -20,7 +20,7 @@ echo '<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <title>test</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/header.css">
   </head>
   <body>
     <div class="container">
@@ -30,6 +30,4 @@ echo '<!DOCTYPE html>
         <div id="boutique"><span>CONTACT</span></div>
         <div id="contact"><a href="Inscription.php"><span>CONNEXION</span></a></div>
       </div>
-  </body>
-</html>
 ';
