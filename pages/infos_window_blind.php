@@ -13,11 +13,11 @@ require_once("Fonction.php");
 require_once("patern/Head.php");
 
 $bdd = getDataBase();
-$liste = getListe($bdd, "fenetre");
-
-$city_name = getCityById($bdd);
 
 $user_id = $idClient;
+
+$city_name = getCityById($bdd, $user_id);
+
 
 if (isset($user_id)){
     $fenetres = getInfoUser($bdd, $user_id);

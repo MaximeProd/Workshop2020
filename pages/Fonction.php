@@ -129,25 +129,25 @@ function getInfoUser($bdd, $user_id){
 
     // pour afficher toute la liste
     if (!empty($user_id)) {
-        $user_id = $user_id . '%';
         $statement->bindParam(':u_id', $user_id);
     }
 
     if ($statement->execute()) {
         $user = $statement->fetchAll(PDO::FETCH_OBJ);
+
         // Fermeture de la ressource
         $statement->closeCursor();
     }
     return $user;
 }
 
-function getCityById ($bdd) {
+function getCityById ($bdd, $user_id) {
     // pour récupérer le NOM et uniquement le nom de la ville d'un utilisateur connecté
     if(!empty($bdd)) {
-        $cities = getInfoUser($bdd, 1); // TODO : changer le 1 avec l'id de l'utilister
+        $cities = getInfoUser($bdd, $user_id);
         if (!empty($cities)) {
             foreach ($cities as $city) {
-                if ($city->c_id == 1){ // TODO : changer l'id et mettre l'id de la ville de l'utilisteur
+                if ($city->u_id == $user_id){
                     return  $city->c_name;
                 }
             }
