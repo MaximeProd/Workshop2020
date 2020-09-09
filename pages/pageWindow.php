@@ -9,7 +9,6 @@ include_once("patern/Head.php");
         <div class="boussole">
             <div class="aiguille"></div>
         </div>
-
         <label class="btn btn-nord">Nord</label>
         <label class="btn btn-norde">Nord-Est</label>
         <label class="btn btn-nordo">Nord-Ouest</label>
@@ -47,7 +46,7 @@ include_once("patern/Head.php");
             <div>
                 <input class="btn btn-sudo" type="radio" id="Sud-Ouest" name="card_name" value="sud-ouest" hidden>
             </div>
-            <input type="submit" name="button" class="bouton" value="Validez votre orientation">
+            <input type="submit" name="button" class="btn button" value="Validez votre orientation">
         </form>
     </div>
   </body>
