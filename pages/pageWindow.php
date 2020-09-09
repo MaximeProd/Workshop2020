@@ -9,7 +9,7 @@ include_once("patern/Head.php");
         <div class="boussole">
             <div class="aiguille"></div>
         </div>
-
+qgsgeeg
         <label class="btn btn-nord">Nord</label>
         <label class="btn btn-norde">Nord-Est</label>
         <label class="btn btn-nordo">Nord-Ouest</label>
