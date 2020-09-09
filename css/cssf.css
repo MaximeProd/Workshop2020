@@ -86,7 +86,7 @@ body {
 
 .btn {
   position: absolute;
-  background-color: #3C7292;
+  background: linear-gradient(#6d9ab5, #3C7292);
   box-shadow: 3px 2px 2px #021B2A;
   border: none;
   border-radius: 6px;
@@ -96,7 +96,7 @@ body {
   font-weight:bold;
 }
 
-.btn:hover { background-color: #599EC7;
+.btn:hover { opacity:0.9;
   cursor : pointer;
 }
 
