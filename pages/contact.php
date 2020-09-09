@@ -1,14 +1,15 @@
 <?php
-require ('patern/Head.php');
 
 echo '
 
-<link rel="stylesheet" href="../css/gylipo.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://demo.voidcoders.com/htmldemo/fitgear/main-files/assets/css/animate.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/gylipo.css">';
+    require ('patern/Head.php');
+echo '
 <body>
-  <section class="contact-page-section">
      <div class="container">
          <div class="sec-title">
              <div class="title">Contactez Smart Celsius</div>
@@ -56,9 +57,9 @@ echo '
                      <div class="inner-column">
                          <h2>Contact Info</h2>
                            <ul class="list-info">
-                             <li><i class="fas fa-globe"></i>437 Avenue des Apothicaires, 34090 Montpellier</li>
-                               <li><i class="far fa-envelope"></i>example@test</li>
-                               <li><i class="fas fa-phone"></i>06 42 58 74 35 <br>04 56 90 73 25</li>
+                             <li><i class="fas fa-globe"></i> 437 Avenue des Apothicaires, 34090 Montpellier</li>
+                               <li><i class="far fa-envelope"></i> example@test</li>
+                               <li><i class="fas fa-phone"></i> 06 42 58 74 35 <br>04 56 90 73 25</li>
                            </ul>
                            <ul class="social-icon-four">
                                <li class="follow">Suivez nos réseaux sociaux: </li>
@@ -71,7 +72,7 @@ echo '
                  </div>
            </div>
        </div>
-   </section>
+   
 </body>
 </html>
 ';
