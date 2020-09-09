@@ -10,7 +10,6 @@
 </head>
 
 <body>
-<h4>
     <?php
 
     require_once("Fonction.php");
@@ -19,6 +18,8 @@
     $liste = getListe($bdd, "fenetre");
 
     $city_name = getCityById($bdd);
+
+    $fenetres = getInfoUser($bdd, 1); // TODO : changer le 1 pour l'id de l'user
 
     if (isset($city_name)) {
         echo '<h1>
@@ -56,112 +57,137 @@
         $cityname = $clima->name;
         $sky = $clima->weather[0]->description;
 
-        echo "<table border='1' table width='400' align='center'>
-			<tr>
-				
-			</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Date relevé"."</td>";
-        echo "<td> <p align='center'>" . $date_r."</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "T max ". "&deg;C"."</td>";
-        echo "<td> <p align='center'>" . $temp_max."</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "T min ". "&deg;C"."</td>";
-        echo "<td> <p align='center'>" . $temp_min. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "T actuelle ". "&deg;C"."</td>";
-        echo "<td> <p align='center'>" . $temp. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Pression hpa". "</td>";
-        echo "<td> <p align='center'>" . $pression. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Vitesse vent Km/h   ". "</td>";
-        echo "<td> <p align='center'>" . $vitesse_vent. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Direction vent ° ". "</td>";
-        echo "<td> <p align='center'>" . $direction. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Humidité %  ". "</td>";
-        echo "<td> <p align='center'>" . $humidite. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td> <p align='center'>" . "Ciel". "</td>";
-        echo "<td> <p align='center'>" . "<img src='http://openweathermap.org/img/w/" . $icon ."'/ >". "</td>";
-        echo "</tr>";
+//        echo "<table border='1' table width='400' align='center'>
+//			<tr>
+//
+//			</tr>";
+//        echo "<tr>";
+//        echo "<td> <p align='center'>" . "Date et heure" . "</td>";
+//        echo "<td> <p align='center'>" . $date_r . "</td>";
+//        echo "</tr>";
+//        echo "<tr>";
+//        echo "<td> <p align='center'>" . "Ciel" . "</td>";
+//        echo "<td> <p align='center'>" . "<img src='http://openweathermap.org/img/w/" . $icon . "'/ >" . "</td>";
+//        echo "</tr>";
+//
+//        echo("<br>");
 
-        echo("<br>");
-
-
-        // TODO lister toutes les fenêtres appartenant à l'utilisateur
+        echo "<p>Heure : " . $hour . "</p>";
+        echo "<p>Température : " . $tempC . "°C</p>";
 
         // ouvrir ou fermer les fenetres
-        // TODO : prendre en compte les cardinalités
-        if ($sky == "clear sky") {
-            switch ($tempC) {
-                // température supérieure à 25°C
-                case $tempC > 25 :
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, il vaudrait mieux fermer la fenêtre. ";
-                    // ouvrir ou fermer les volets
-                    switch ($hour) {
-                        // température supérieure à 25°C et heure comprise entre minuit et 9h
-                        case $hour >= 0 && $hour < 9:
-                            echo "Vous pouvez ouvrir les volets" . '<br>';
+
+        ?>
+
+        <table border="solid" width='400' align='center'>
+            <th>
+                <td>Nom fenêtre</td>
+                <td>Exposition</td>
+                <td>Que faire avec la fenêtre ?</td>
+                <td>Que faire avec le volet ?</td>
+            </th>
+
+
+
+    <?php
+    $action_window = "";
+    $action_blind = "";
+
+        if (!empty($bdd)) {
+            foreach ($fenetres as $fenetre) {
+                if ($sky == "clear sky") {
+                    switch ($tempC) {
+
+                        // température supérieure à 25°C
+                        case $tempC > 25 :
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. ";
+                            $action_window = "Fermer";
+
+                            // ouvrir ou fermer les volets
+                            switch ($hour) {
+                                // température supérieure à 25°C et heure comprise entre minuit et 9h
+                                case $hour >= 0 && $hour < 9:
+                                    // vérification des cardinalités
+                                    if ($fenetre->card_name =="est" || $fenetre->card_name =="nord-est" || $fenetre->card_name =="sud-est") {
+                                        //echo "fermer les volets de la fenêtre " . $fenetre->w_name . ". Car exposition : " . $fenetre->card_name . '<br>';
+                                        $action_blind = "Fermer";
+                                    }
+                                    else {
+                                        //echo "ouvrir les volets de la fenêtre " . $fenetre->w_name . ". Car exposition : " . $fenetre->card_name . '<br>';
+                                        $action_blind = "Ouvrir";
+                                    }
+                                    break;
+
+                                // température supérieure à 25°C et heure comprise entre 9h et 18h
+                                case $hour >= 9 && $hour < 18:
+                                    if ($fenetre->card_name =="sud" || $fenetre->card_name =="sud-est" || $fenetre->card_name =="sud-ouest" || $fenetre->card_name =="ouest") {
+                                        //echo "fermer les volets de la fenetre " . $fenetre->w_name . ". Car exposition : " . $fenetre->card_name . '<br>';
+                                        $action_blind = "Fermer";
+                                    }
+                                    else {
+                                        //echo "ouvrir les volets de la fenêtre " . $fenetre->w_name . ". Car exposition : " . $fenetre->card_name . '<br>';
+                                        $action_blind = "Ouvrir";
+                                    }
+                                    break;
+
+                                // température supérieure à 25°C et heure comprise entre 18h et minuit
+                                case $hour >= 18 && $hour < 24:
+                                    //echo "ouvrir les volets de la fenetre " . $fenetre->w_name . ". Car exposition : " . $fenetre->card_name . '<br>';
+                                    $action_blind = "Ouvrir";
+                                    break;
+                            }
                             break;
 
-                        // température supérieure à 25°C et heure comprise entre 9h et 18h
-                        case $hour >= 9 && $hour < 18:
-                            echo "Vous devriez fermer les volets" . '<br>';
+
+                        // température inférieure à 18°C
+                        case $tempC < 18 :
+                            // température inférieur à 18°C
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. " . '<br>';
+                            $action_window = "Fermer";
+
+
+                        // température comprise entre 25 et 18°C
+                        case $tempC <= 25 && $tempC >= 18:
+                            // température comprise entre 25 et 18°C
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, ouvrir la fenêtre. " . '<br>';
+                            $action_window = "Ouvrir";
+                            break;
+                    } // end switch $tempC
+                } // end if $sky == "clear sky"
+                elseif ($sky == "rain" || $sky == "mist" || $sky == "drizzle" || $sky == "shower rain" || $sky == "thunderstorm" || $sky == "snow") {
+                    //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, mais il pleut, fermer la fenêtre en gardant les volets ouverts";
+                    $action_window = "Fermer";
+                    $action_blind = "Ouvrir";
+                } // end else if $sky =="rain"
+
+                else {
+                    switch ($tempC) {
+                        case $tempC > 25 :
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. ";
+                            $action_window = "Fermer";
                             break;
 
-                        // température supérieure à 25°C et heure comprise entre 18h et minuit
-                        case $hour >= 18 && $hour < 24:
-                            echo "Vous pouvez ouvrir les volets" . '<br>';
+                        case $tempC < 18 :
+                            // température inférieur à 18°C
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. ";
+                            $action_window = "Fermer";
                             break;
-                    }
-                    break;
 
-                case $tempC <18 :
-                    // température inférieur à 18°C
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, il vaudrait mieux fermer la fenêtre. ";
-
-                case $tempC <= 25 && $tempC>= 18:
-                    // température comprise entre 25 et 18°C
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, vous pouvez ouvrir la fenêtre. ";
-                    break;
-            } // end switch $tempC
-        } // end if $sky == "clear sky"
-        elseif ($sky == "rain" || $sky == "mist" || $sky == "drizzle" || $sky == "shower rain" || $sky == "thunderstorm" || $sky == "snow") {
-            echo "Il est " . $hour . "h et il fait " . $tempC . "°C, mais il pleut, vous devriez fermer la fenêtre en gardant les volets ouverts";
-        } // end else if $sky =="rain"
-
-        else {
-            switch ($tempC) {
-                case $tempC > 25 :
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, il vaudrait mieux fermer la fenêtre. ";
-                    break;
-
-                case $tempC < 18 :
-                    // température inférieur à 18°C
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, il vaudrait mieux fermer la fenêtre. ";
-                    break;
-
-                case $tempC <= 25 && $tempC >= 18:
-                    // température comprise entre 25 et 18°C
-                    echo "Il est " . $hour . "h et il fait " . $tempC . "°C, vous pouvez ouvrir la fenêtre. ";
-                    break;
-            }// end switch $tempC
-        }// end else
-    } // end if isset city_name
+                        case $tempC <= 25 && $tempC >= 18:
+                            // température comprise entre 25 et 18°C
+                            //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, ouvrir la fenêtre. ";
+                            $action_window = "Ouvrir";
+                            break;
+                    }// end switch $tempC
+                }// end else
+                echo $action_window;
+                echo $action_blind;
+                // TODO : faire les lignes des tableaux avec les nouvelles valeurs
+            } // end if isset city_name
+        } // fin foreach
+    } // if not empty bdd
 
     ?>
-</h4>
+    </table>
 </body>
 </html>
