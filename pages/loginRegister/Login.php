@@ -28,9 +28,13 @@ if(isset($bdd)){
             $_SESSION["erreur"] = 3;
         }
     }
-    header('Location: ../Inscription.php');
+
+
 }else {
     $_SESSION["erreur"] = 7;
     header('Location: ../Inscription.php');
 }
 
+if ($_SESSION["erreur"] != null){
+
+}

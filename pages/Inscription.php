@@ -7,7 +7,8 @@ require 'patern/Head.php';
 
 
 echo '
-  <link rel="stylesheet" href="../css/LoginRegister.css"
+    <link rel="stylesheet" href="../css/LoginRegister.css">
+    <div class="contain">
     <div class="container right-panel-active">
       <!-- Sign Up -->
       <div class="container__form container--signup">
@@ -37,9 +38,9 @@ echo '
 
       <!-- Sign In -->
       <div class="container__form container--signin">
-      <h2 class="form__title">Se connecter</h2>
+      
         <form action="loginRegister/Login.php" method ="post" class="form" >
-          
+          <h2 class="form__title">Se connecter</h2>
           <input type="email" name="u_email" placeholder="Email" class="input" required>
           <input type="password" name="u_password" placeholder="Mot de passe" class="input" required />
           <input type="submit" class="btn" value="Se connecter">
@@ -60,6 +61,7 @@ echo '
     </div>
    
     <script src="../Javascript/Js.js" charset="utf-8"></script>
+    </div>
      </body>
  </html>
 ';

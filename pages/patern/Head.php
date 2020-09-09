@@ -29,7 +29,7 @@ $admin = false;
     afficherErreur();
     var_dump($idClient);
     ?>
-    <div class="container">
+    <div class="containerHeader">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
         <div id="exemple"><a href="infos_window_blind.php"><span>RENSEIGNEMENTS</span></a></div>

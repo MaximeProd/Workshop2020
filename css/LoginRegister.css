@@ -22,7 +22,9 @@
     src: url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900&subset=latin-ext%27");
 }
 
-body {
+.contain {
+    width: 100%;
+
     align-items: center;
     background-color: var(--white);
     background: url("bear.jpg");
