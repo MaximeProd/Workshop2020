@@ -85,7 +85,8 @@ function updateListe(PDO $bdd,$fromTable,Array $args,$idModif) {
 function getInfoUser($bdd, $user_id){
     // récupère les informations d'un utilisateur à partir de son identifiant, ainsi que les infos de sa ville
 
-    $query = "SELECT * FROM user AS u, city AS c WHERE c.c_id = u.u_id";
+    $query = "SELECT * FROM user AS u, city AS c, fenetre AS f, cardinalite AS card 
+                WHERE c.c_id = u.c_id AND f.u_id = u.u_id AND card.card_id = f.card_id";
 
 // si on rentre pas quelque chose de vide ou égal à 0
     if (!empty($city_name)) {
@@ -120,35 +121,4 @@ function getCityById ($bdd) {
             }
         }
     }
-}
-
-function insertListe(PDO $bdd,$toTable,Array $args) {
-    //Pour utiliser cette fonction il faut lui envoyer :
-    //La bdd
-    //Le(s) table au quel on veux insérer
-    //Une liste des insertion à faire :
-    // array(arg1 => modif1, arg2 => modif2, etc)
-    //Avec un exemple :
-    // array( 'idClient' => 15, 'prenom' => 'Maxime')
-    $tableValues = '';
-    $values = '';
-    foreach ($args as $key => $arg) {
-        $tableValues = "{$tableValues},{$key}";
-        $values = "{$values},:p_{$key}";
-    }
-    //On supprime la première virgule parasite
-    $tableValues = substr($tableValues, 1);
-    $values = substr($values, 1);
-    //On construit le query
-    $query = "INSERT INTO {$toTable}({$tableValues}) VALUES ({$values}) ";
-    //Affectation des paramètres (Pour rappel les paramètres (p_arg) sont une sécuritée)
-    $statement = $bdd->prepare($query);
-    foreach ($args as $key => $arg) {
-        $para = ':p_'.$key;
-        $statement->bindValue($para, $arg);
-    }
-    //var_dump($statement);
-    //On réalise l'insertion
-    $statement->execute();
-    $statement->closeCursor();
 }
