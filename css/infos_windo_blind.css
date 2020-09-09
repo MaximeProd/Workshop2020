@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900&subset=latin-ext');
+
+html,body{
+    font-family:'Quicksand';
+    background-image: url(ciel.jpg);
+    color: #FFFFFF;
+}
+title{
+    color: #FFFFFF;
+}
+table{
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    margin-left: 5%;
+    position: absolute;
+    margin-top: 5%;
+    margin-right: 5%;
+    font-style: normal;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.drt{
+    margin-left: 37%;
+    margin-top: 5%;
+    position: absolute;
+}
