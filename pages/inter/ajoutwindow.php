@@ -13,8 +13,11 @@ if(isset($_POST["card_name"]) && isset($_POST["w_name"]) && isset($_POST["u_id"]
     $_POST["card_id"] = $id_card;
     insertListe($bdd,'fenetre',$_POST);
 } else {
-    $_SESSION["erreur"] = "Le post est incorrect";
-    echo "fail";
-    var_dump($_POST);
+    $_SESSION["erreur"] = "Une erreur s'est produite";
+}
+if($_SESSION["erreur"] != null){
+    header('Location: ../infos_window_blind.php');
+} else {
+    header('Location: ../pageWindow.php');
 }
 
