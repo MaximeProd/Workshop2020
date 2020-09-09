@@ -121,3 +121,40 @@ function getCityById ($bdd) {
         }
     }
 }
+
+function afficherErreur($erreur = null){
+    if (!empty($erreur)){
+        $_SESSION["erreur"]=$erreur;
+    }
+    if (isset($_SESSION["erreur"])){
+        $valueErreur = $_SESSION["erreur"];
+        if ($valueErreur  == 1){
+            $erreur = 'Veuillez contacter l\'administrateur dès les plus bref délai!!';
+        } elseif ($valueErreur  == 2) {
+            $erreur = 'Mot de passe ou email incorrect';
+        } elseif ($valueErreur  == 3) {
+            $erreur = 'Email incorrect';
+        } elseif ($valueErreur  == 4) {
+            $erreur = 'Les mots de passe ne correspondent pas';
+        } elseif ($valueErreur  == 5) {
+            $erreur = 'Email déjà utilisé';
+        } elseif ($valueErreur  == 6) {
+            $erreur = 'Champ obligatoire incomplet';
+        } elseif ($valueErreur  == 7) {
+            $erreur = 'Serveur introuvable!';
+        } elseif ($valueErreur  == 13) {
+            $erreur = 'Vous devez être connecté pour voir vos réservations : <a href="LoginRegister.php"> > Page connexion < </a>';
+        } else {
+            $erreur = $_SESSION["erreur"];
+        }
+
+        unset($_SESSION["erreur"]);
+    }
+    if (isset($erreur)){
+        echo '
+          <div class="erreur">
+            <p>' . $erreur . '</p>
+          </div>
+          ';
+    }
+}
