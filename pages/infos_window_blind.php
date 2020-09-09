@@ -218,6 +218,7 @@ if (isset($user_id)){
                             break;
                     }// end switch $tempC
                 }// end else
+
                 echo '<tr>
                             <td>' . $fenetre->w_name . '</td>
                             <td> ' . $fenetre->card_name . '</td>
@@ -225,12 +226,12 @@ if (isset($user_id)){
                             <td> ' . $action_blind . '</td>
                             <td> ' . $action_clim . '</td>
                             <td> ' . $action_chauf . '</td>
-                       </tr>
-                   </table>';
-                } // end if isset city_name
-            } // fin foreach
-        } // if not empty bdd
-    }// if isset id client
+                       </tr> ';
+                } // fin foreach
+            } // if not empty bdd
+        } // if isset city name
+        echo '</table>';
+    } // if isset id client
     else {
         echo '<h1>
             <hr/>
