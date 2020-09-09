@@ -20,7 +20,7 @@ $admin = false;
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>test</title>
+    <title>Smart Celsius</title>
     <link rel="stylesheet" href="../css/header.css">
   </head>
   <body>
@@ -32,8 +32,9 @@ $admin = false;
     <div class="container">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
-        <div id="exemple"><span>RENSEIGNEMENTS</span></div>
-        <div id="boutique"><span>CONTACT</span></div>
+        <div id="exemple"><a href="infos_window_blind.php"><span>RENSEIGNEMENTS</span></a></div>
+        <div id="boutique"><a href="contact.php"><span>CONTACT</span></a></div>
+        <div id="propos"><a href="apropos.php"><span>A PROPOS</span></a></div>
           <?php
           if($idClient == null) {
               echo '<div id="contact"><a href="Inscription.php"><span>CONNEXION</span></a></div>';
@@ -42,5 +43,4 @@ $admin = false;
           }
 
           ?>
-
       </div>

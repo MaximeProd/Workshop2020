@@ -60,6 +60,6 @@ echo '
     </div>
    
     <script src="../Javascript/Js.js" charset="utf-8"></script>
-  </body>
+     </body>
  </html>
 ';
