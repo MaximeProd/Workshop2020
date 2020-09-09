@@ -10,10 +10,8 @@ body {
   font-family:'Quicksand';
 }
 .bouton{
-  position: relative;
   text-align: center;
-  left: 46%;
-  margin-top: 6%;
+  margin :0 0  0 10px;
   background-color: #BBBBBB;
 }
 .boussole {
@@ -148,5 +146,5 @@ body {
 
 .name {
   width:200px;
-  margin : 20px;
+  margin : 0 0 5px 10px;
 }
