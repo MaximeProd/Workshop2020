@@ -10,7 +10,7 @@ include_once("patern/Head.php");
             <div class="aiguille"></div>
         </div>
 
-
+        <label class="btn btn-nord">Nord</label>
         <label class="btn btn-norde">Nord-Est</label>
         <label class="btn btn-nordo">Nord-Ouest</label>
         <label class="btn btn-est">Est</label>
@@ -20,6 +20,9 @@ include_once("patern/Head.php");
         <label class="btn btn-ouest">Ouest</label>
         <script src="../Javascript/jsf.js" charset="utf-8"></script>
         <form action="inter/ajoutwindow.html" method="get">
+            <div>
+                <input class="name" type="text" id="window_name" name="w_name" placeholder="Entrez le nom de la fenêtre">
+            </div>
             <div>
                 <input class="btn btn-nord" type="radio" id="Nord" name="card_name" value="nord" hidden>
             </div>

@@ -102,46 +102,51 @@ body {
 .btn:hover { background-color: #FFFBC6; }
 
 .btn-nord {
-  top: 2vmin;
+  top: 15vmin;
   left: 50%;
   transform: translate(-50%, 0);
 }
 
 .btn-norde {
-  top: 15vmin;
-  left: 80%;
+  top: 20%;
+  left: 62%;
   transform: translate(20%, 75%);
 }
 
 .btn-nordo {
-  top: 15vmin;
-  left: 20%;
+  top: 24%;
+  left: 30%;
   transform: translate(-20%, 20%);
 }
 .btn-est {
   top: 50%;
-  right: 7vmin;
+  right: 25%;
   transform: translate(0, -50%);
 }
 
 .btn-sud {
-  bottom: 2vmin;
+  bottom: 12vmin;
   left: 50%;
   transform: translate(-50%, 0);
 }
 .btn-sudo {
-  bottom: 20vmin;
-  left: 20%;
+  bottom: 20%;
+  left: 30%;
   transform: translate(-20%, 25%);
 }
 .btn-sude {
-  bottom: 20vmin;
-  left: 80%;
+  bottom: 22%;
+  left: 62%;
   transform: translate(20%, 75%);
 }
 
 .btn-ouest {
   top: 50%;
-  left: 7vmin;
+  left: 25%;
   transform: translate(0, -50%);
+}
+
+.name {
+  width:200px;
+  margin : 20px;
 }
