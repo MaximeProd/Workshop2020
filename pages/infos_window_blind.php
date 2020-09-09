@@ -16,7 +16,7 @@ $liste = getListe($bdd, "fenetre");
 
 $city_name = getCityById($bdd);
 
-$user_id = 1; // TODO : changer le 1 pour l'id de l'user
+$user_id = $idClient; // TODO : changer le 1 pour l'id de l'user
 
 $fenetres = getInfoUser($bdd, $user_id);
 
