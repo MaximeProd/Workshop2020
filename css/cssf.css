@@ -59,7 +59,7 @@ body {
 }
 
 .pointe-nordo .aiguille {
-  transform: translate(-50%,-50%) rotate(-45deg);
+  transform: translate(-50%,-50%) rotate(315deg);
 }
 
 .pointe-sude .aiguille {
@@ -67,7 +67,7 @@ body {
 }
 
 .pointe-sudo .aiguille {
-  transform: translate(-50%,-50%) rotate(-135deg);
+  transform: translate(-50%,-50%) rotate(225deg);
 }
 .aiguille::before,
 .aiguille::after {

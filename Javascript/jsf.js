@@ -22,26 +22,26 @@ nord.addEventListener('click', function() {
   document.body.classList.add('pointe-nord');
 })
 
-var nord = document.querySelector('.btn-norde');
-nord.addEventListener('click', function() {
+var norde = document.querySelector('.btn-norde');
+norde.addEventListener('click', function() {
   document.body.classList.remove('pointe-est', 'pointe-ouest', 'pointe-sud', 'pointe-nord','pointe-nordo','pointe-sudo','pointe-sude');
   document.body.classList.add('pointe-norde');
 })
 
-var nord = document.querySelector('.btn-nordo');
-nord.addEventListener('click', function() {
+var nordo = document.querySelector('.btn-nordo');
+nordo.addEventListener('click', function() {
   document.body.classList.remove('pointe-est', 'pointe-ouest', 'pointe-sud','pointe-nord','pointe-sudo','pointe-sude','pointe-norde');
   document.body.classList.add('pointe-nordo');
 })
 
-var sud = document.querySelector('.btn-sudo');
-sud.addEventListener('click', function() {
+var sudo = document.querySelector('.btn-sudo');
+sudo.addEventListener('click', function() {
   document.body.classList.remove('pointe-est', 'pointe-ouest', 'pointe-sud','pointe-nord','pointe-norde', 'pointe-nordo','pointe-sude');
   document.body.classList.add('pointe-sudo');
 })
 
-var sud = document.querySelector('.btn-sude');
-sud.addEventListener('click', function() {
+var sude = document.querySelector('.btn-sude');
+sude.addEventListener('click', function() {
   document.body.classList.remove('pointe-est', 'pointe-ouest', 'pointe-sud','pointe-nord','pointe-norde','pointe-nordo','pointe-sudo');
   document.body.classList.add('pointe-sude');
 })

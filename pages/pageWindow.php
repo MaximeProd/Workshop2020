@@ -25,28 +25,28 @@ include_once("patern/Head.php");
                 <input class="btn btn-nord" type="radio" id="Nord" name="card_name" value="nord">
             </div>
             <div>
-                <label for="Nord-Ouest">Nord-Ouest</label>
+
                 <input class="btn btn-nordo" type="radio" id="Nord-Ouest" name="card_name" value="nord-ouest">
             </div>
             <div>
-                <label for="Est">Est</label>
+
                 <input class="btn btn-est" type="radio" id="Est" name="card_name" value="est">
             </div>
             <div>
-                <label  for="Sud">Sud</label>
+
                 <input class="btn btn-sud" type="radio" id="Sud" name="card_name" value="sud">
             </div>
             <div>
                 <label  for="Ouest">Ouest</label>
-                <input class="btn btn-ouest" type="radio" id="Ouest" name="card_name" value="ouest">
+                <input class="btn btn-ouest" type="radio"  name="card_name" value="ouest">
             </div>
             <div>
                 <label  for="Nord-Est">Nord-Est</label>
-                <input class="btn btn-norde" type="radio" id="Nord-Est" name="card_name" value="nord-est">
+                <input class="btn btn-norde" type="radio"  name="card_name" value="nord-est">
             </div>
             <div>
                 <label  for="Sud-Est">Sud-Est</label>
-                <input class="btn btn-sude" type="radio" id="Sud-Est" name="card_name" value="sud-est">
+                <input class="btn btn-sude" type="radio"  name="card_name" value="sud-est">
             </div>
             <div>
                 <label  for="Sud-Ouest">Sud-Ouest</label>
