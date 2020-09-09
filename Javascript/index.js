@@ -4,6 +4,10 @@ var accueil = document.getElementById('accueil');
 var exemple = document.getElementById('exemple');
 var boutique = document.getElementById('boutique');
 var contact = document.getElementById('contact');
+var title = document.getElementById('title');
+var propos = document.getElementById('propos');
+
+
 
 var inelement = 0;
 var xmouse = 0;
@@ -24,6 +28,7 @@ movewithcursor(accueil);
 movewithcursor(exemple);
 movewithcursor(boutique);
 movewithcursor(contact);
+movewithcursor(propos);
 
 
 function movewithcursor(elementtomove){
