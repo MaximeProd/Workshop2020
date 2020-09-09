@@ -83,20 +83,21 @@ function updateListe(PDO $bdd,$fromTable,Array $args,$idModif) {
 }
 
 function getInfoUser($bdd, $user_id){
-    // récupère les informations d'un utilisateur à partir de son identifiant, ainsi que les infos de sa ville
+    // récupère les informations d'un utilisateur à partir de son identifiant, ainsi que les infos de sa ville et de ses fenêtres
 
     $query = "SELECT * FROM user AS u, city AS c, fenetre AS f, cardinalite AS card 
                 WHERE c.c_id = u.c_id AND f.u_id = u.u_id AND card.card_id = f.card_id";
 
+
 // si on rentre pas quelque chose de vide ou égal à 0
-    if (!empty($city_name)) {
+    if (!empty($user_id)) {
         $query .= " AND u.u_id LIKE :u_id";
     }
     $user = null;
     $statement = $bdd->prepare($query);
 
     // pour afficher toute la liste
-    if (!empty($city_name)) {
+    if (!empty($user_id)) {
         $user_id = $user_id . '%';
         $statement->bindParam(':u_id', $user_id);
     }
