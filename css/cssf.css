@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900&subset=latin-ext');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #86fde8, #acb6e5);
+  margin: 0;
+  padding: 0;
+  font-family:'Quicksand';
+}
+.bouton{
+  position: relative;
+  text-align: center;
+  left: 46%;
+  margin-top: 6%;
+  background-color: #BBBBBB;
+}
+.boussole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50vmin;
+  height: 50vmin;
+  background: radial-gradient(#02B6EE, #087EDE);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 2vmin #fdfdfd;
+}
+
+.aiguille {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 8vmin;
+  height: 100%;
+  transition: transform 0.5s;
+}
+
+.pointe-est .aiguille {
+  transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.pointe-ouest .aiguille {
+  transform: translate(-50%,-50%) rotate(-90deg);
+}
+
+.pointe-sud .aiguille {
+  transform: translate(-50%,-50%) rotate(180deg);
+}
+
+.pointe-nord .aiguille {
+  transform: translate(-50%,-50%) rotate(0deg);
+}
+
+.pointe-norde .aiguille {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.pointe-nordo .aiguille {
+  transform: translate(-50%,-50%) rotate(315deg);
+}
+
+.pointe-sude .aiguille {
+  transform: translate(-50%,-50%) rotate(135deg);
+}
+
+.pointe-sudo .aiguille {
+  transform: translate(-50%,-50%) rotate(225deg);
+}
+.aiguille::before,
+.aiguille::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.aiguille::before {
+  bottom: 50%;
+  border-left: 4vmin solid transparent;
+  border-right: 4vmin solid transparent;
+  border-bottom: 23vmin solid red;
+}
+.aiguille::after {
+  top: 50%;
+  border-left: 4vmin solid transparent;
+  border-right: 4vmin solid transparent;
+  border-top: 23vmin solid #fdfdfd;
+}
+
+.btn {
+  position: absolute;
+  background-color: #BBBBBB;
+  border: none;
+  border-radius: 6px;
+  padding: 2vmin 3vmin;
+  transition: background-color 0.3s
+}
+
+.btn:hover { background-color: #FFFBC6; }
+
+.btn-nord {
+  top: 2vmin;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.btn-norde {
+  top: 15vmin;
+  left: 80%;
+  transform: translate(20%, 75%);
+}
+
+.btn-nordo {
+  top: 15vmin;
+  left: 20%;
+  transform: translate(-20%, 20%);
+}
+.btn-est {
+  top: 50%;
+  right: 7vmin;
+  transform: translate(0, -50%);
+}
+
+.btn-sud {
+  bottom: 2vmin;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.btn-sudo {
+  bottom: 20vmin;
+  left: 20%;
+  transform: translate(-20%, 25%);
+}
+.btn-sude {
+  bottom: 20vmin;
+  left: 80%;
+  transform: translate(20%, 75%);
+}
+
+.btn-ouest {
+  top: 50%;
+  left: 7vmin;
+  transform: translate(0, -50%);
+}

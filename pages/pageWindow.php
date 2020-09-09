@@ -9,8 +9,6 @@ include_once("patern/Head.php");
         <div class="boussole">
             <div class="aiguille"></div>
         </div>
-
-
         <label class="btn btn-norde">Nord-Est</label>
         <label class="btn btn-nordo">Nord-Ouest</label>
         <label class="btn btn-est">Est</label>
