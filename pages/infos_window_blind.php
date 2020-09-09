@@ -19,7 +19,9 @@
 
     $city_name = getCityById($bdd);
 
-    $fenetres = getInfoUser($bdd, 1); // TODO : changer le 1 pour l'id de l'user
+    $user_id = 1; // TODO : changer le 1 pour l'id de l'user
+
+    $fenetres = getInfoUser($bdd, $user_id);
 
     if (isset($city_name)) {
         echo '<h1>
@@ -57,41 +59,23 @@
         $cityname = $clima->name;
         $sky = $clima->weather[0]->description;
 
-//        echo "<table border='1' table width='400' align='center'>
-//			<tr>
-//
-//			</tr>";
-//        echo "<tr>";
-//        echo "<td> <p align='center'>" . "Date et heure" . "</td>";
-//        echo "<td> <p align='center'>" . $date_r . "</td>";
-//        echo "</tr>";
-//        echo "<tr>";
-//        echo "<td> <p align='center'>" . "Ciel" . "</td>";
-//        echo "<td> <p align='center'>" . "<img src='http://openweathermap.org/img/w/" . $icon . "'/ >" . "</td>";
-//        echo "</tr>";
-//
-//        echo("<br>");
-
-        echo "<p>Heure : " . $hour . "</p>";
-        echo "<p>Température : " . $tempC . "°C</p>";
-
         // ouvrir ou fermer les fenetres
-
         ?>
 
         <table border="solid" width='400' align='center'>
-            <th>
+            <tr>
                 <td>Nom fenêtre</td>
                 <td>Exposition</td>
                 <td>Que faire avec la fenêtre ?</td>
                 <td>Que faire avec le volet ?</td>
-            </th>
+            </tr>
 
 
 
     <?php
     $action_window = "";
     $action_blind = "";
+
 
         if (!empty($bdd)) {
             foreach ($fenetres as $fenetre) {
@@ -154,7 +138,7 @@
                             break;
                     } // end switch $tempC
                 } // end if $sky == "clear sky"
-                elseif ($sky == "rain" || $sky == "mist" || $sky == "drizzle" || $sky == "shower rain" || $sky == "thunderstorm" || $sky == "snow") {
+                elseif ($sky == "light rain" || $sky == "rain" || $sky == "mist" || $sky == "drizzle" || $sky == "shower rain" || $sky == "thunderstorm" || $sky == "snow") {
                     //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, mais il pleut, fermer la fenêtre en gardant les volets ouverts";
                     $action_window = "Fermer";
                     $action_blind = "Ouvrir";
@@ -165,24 +149,30 @@
                         case $tempC > 25 :
                             //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. ";
                             $action_window = "Fermer";
+                            $action_blind = "Fermer";
                             break;
 
                         case $tempC < 18 :
                             // température inférieur à 18°C
                             //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, fermer la fenêtre. ";
                             $action_window = "Fermer";
+                            $action_blind = "Ouvrir";
                             break;
 
                         case $tempC <= 25 && $tempC >= 18:
                             // température comprise entre 25 et 18°C
                             //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, ouvrir la fenêtre. ";
                             $action_window = "Ouvrir";
+                            $action_blind = "Ouvrir";
                             break;
                     }// end switch $tempC
                 }// end else
-                echo $action_window;
-                echo $action_blind;
-                // TODO : faire les lignes des tableaux avec les nouvelles valeurs
+                echo '<tr>
+                        <td>' . $fenetre->w_name . '</td> 
+                        <td> ' . $fenetre->card_name . '</td>
+                        <td> ' . $action_window . '</td>
+                        <td> ' . $action_blind . '</td>
+                       </tr>' ;
             } // end if isset city_name
         } // fin foreach
     } // if not empty bdd
