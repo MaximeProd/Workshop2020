@@ -1,6 +1,20 @@
 <?php
+session_start();
 require "../Fonction.php";
-$bdd = getDataBase();
 
-$exist = getListe($bdd,"cardinalite",array("card_name"=>"nord"),array(),'*');
-var_dump($exist);
+
+
+if(isset($_POST["card_name"]) && isset($_POST["w_name"]) && isset($_POST["u_id"])){
+    $bdd = getDataBase();
+    $id_card = getListe($bdd,"cardinalite",array("card_name"=>$_POST["card_name"]));
+    unset($_POST["card_name"]);
+    $id_card = $id_card[0];
+    $id_card = $id_card->card_id;
+    $_POST["card_id"] = $id_card;
+    insertListe($bdd,'fenetre',$_POST);
+} else {
+    $_SESSION["erreur"] = "Le post est incorrect";
+    echo "fail";
+    var_dump($_POST);
+}
+
