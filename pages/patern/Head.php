@@ -26,8 +26,9 @@ echo '<!DOCTYPE html>
     <div class="container">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
-        <div id="exemple"><span>RENSEIGNEMENTS</span></div>
-        <div id="boutique"><span>CONTACT</span></div>
+        <div id="exemple"><a href="infos_window_blind.php"><span>RENSEIGNEMENTS</span></a></div>
+        <div id="boutique"><a href="contact.php"><span>CONTACT</span></a></div>
         <div id="contact"><a href="Inscription.php"><span>CONNEXION</span></a></div>
+        <div id="propos"><a href="apropos.php"></a>A PROPOS</div><div></div>
       </div>
 ';
