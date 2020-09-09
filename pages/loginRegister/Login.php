@@ -9,11 +9,12 @@ if(isset($bdd)){
     $_SESSION["erreur"] = null;
     if (isset($pl_login['mdp']) AND isset($pl_login['email'])){
         $password = htmlspecialchars($_POST['mdp']);
-        $liste = getListe($bdd,'membres',Array("email" => $pl_login['email']),Array(),'mdp,id');
+        $liste = getListe($bdd,'user',Array("u_email" => $pl_login['u_email']),Array(),'u_password,u_id');
         if(!empty($liste)){
             if(count($liste)==1 && password_verify($password,$liste[0]->mdp)){
-                $idClient = $liste[0]->id;
+                $idClient = $liste[0]->u_id;
                 $_SESSION['idClient'] = $idClient;
+                header('Location: ../index.php');
             } elseif (count($liste) > 1){
                 $_SESSION['idClient'] = $idClient;
                 //Erreur : Il existe plusieurs client avec la même adresse mail!! Grosse erreur d'identification!
@@ -30,3 +31,4 @@ if(isset($bdd)){
 }else {
     $_SESSION["erreur"] = 7;
 }
+header('Location: ../index.php');

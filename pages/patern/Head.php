@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'Fonction.php';
+require_once( 'Fonction.php');
 $idClient = null;
 $Compte = 'Se connecter/Inscription';
 $lien = "LoginRegister.php";
