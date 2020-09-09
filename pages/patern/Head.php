@@ -32,7 +32,7 @@ $admin = false;
     <div class="containerHeader">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
-        <div id="exemple"><a href="infos_window_blind.php"><span>RENSEIGNEMENTS</span></a></div>
+        <div id="exemple"><a href="infos_window_blind.php"><span>MES FENETRES</span></a></div>
         <div id="boutique"><a href="contact.php"><span>CONTACT</span></a></div>
         <div id="propos"><a href="apropos.php"><span>A PROPOS</span></a></div>
           <?php
