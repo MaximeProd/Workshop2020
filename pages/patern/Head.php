@@ -27,9 +27,7 @@ $admin = false;
   <body>
 
 
-<?php
-    afficherErreur();
-    ?>
+
     <div class="containerHeader">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
@@ -51,6 +49,9 @@ $admin = false;
 
           ?>
       </div>
+        <?php
+        afficherErreur();
+        ?>
 
 
 
