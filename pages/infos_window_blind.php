@@ -9,7 +9,6 @@
 <div>
 <?php
 
-require_once("Fonction.php");
 require_once("patern/Head.php");
 
 $bdd = getDataBase();
@@ -294,7 +293,7 @@ if (isset($user_id)){
               </table>";
 
     }
-        echo"    <div> <input type=\"button\" value=\"Ajoutez une fenêtre\" class=\"fenetre\"> </div>"
+        echo"    <div> <input type=\"button\" value=\"Ajouter une fenêtre\" class=\"fenetre\"> </div>"
     ?>
 
 </body>
