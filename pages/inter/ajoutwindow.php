@@ -2,8 +2,6 @@
 session_start();
 require "../Fonction.php";
 
-
-
 if(isset($_POST["card_name"]) && isset($_POST["w_name"]) && isset($_POST["u_id"])){
     $bdd = getDataBase();
     $id_card = getListe($bdd,"cardinalite",array("card_name"=>$_POST["card_name"]));
@@ -15,6 +13,8 @@ if(isset($_POST["card_name"]) && isset($_POST["w_name"]) && isset($_POST["u_id"]
 } else {
     $_SESSION["erreur"] = "Une erreur s'est produite";
 }
+
+
 if($_SESSION["erreur"] != null){
     header('Location: ../infos_window_blind.php');
 } else {
