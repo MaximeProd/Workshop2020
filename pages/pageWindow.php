@@ -1,33 +1,33 @@
+<?php
+include_once("patern/Head.php");
 
-<html>
-  <body>
-  <form action ="inter/ajoutwindow.php" method ="post">
-      <div>
-          <input type="radio" id="nord" name="card_name" value="nord"  checked>
-          <label for="nord">nord</label>
-      </div>
+?>
 
-      <div>
-          <input type="radio" id="sud" name="card_name" value="sud">
-          <label for="sud">sud</label>
-      </div>
+    <link rel="stylesheet" href="../css/cssf.css">
+    <h1>Choisissez votre orientation</h1>
+    <div class="complet">
+        <div class="boussole">
+            <div class="aiguille"></div>
+        </div>
 
-      <div>
-          <input type="radio" id="est" name="card_name" value="est">
-          <label for="est">est</label>
-      </div>
-      <div>
-          <input type="radio" id="ouest" name="card_name" value="ouest">
-          <label for="ouest">ouest</label>
-      </div>
 
-      <label for="w_name">Nom de la fenêtre : </label>
-      <input type="input" id="name" name="w_name" value="Fenêtre">
-      <input type="hidden" id="name" name="u_id" value="1">
+        <label class="btn btn-norde">Nord-Est</label>
+        <label class="btn btn-nordo">Nord-Ouest</label>
+        <label class="btn btn-est">Est</label>
+        <label class="btn btn-sud">Sud</label>
+        <label class="btn btn-sude">Sud-Est</label>
+        <label class="btn btn-sudo">Sud-Ouest</label>
+        <label class="btn btn-ouest">Ouest</label>
+        <script src="../Javascript/jsf.js" charset="utf-8"></script>
+        <form action="inter/ajoutwindow.html" method="get">
+            <div>
+                <label class="btn btn-nord" for="Nord">Nord</label>
+                <input type="radio" id="Nord" name="card_name" value="nord">
+            </div>
 
-      <input type="submit" value="Envoyer">
-  </form>
-
+            <input type="submit" name="button" class="bouton" value="Validez votre orientation">
+        </form>
+    </div>
   </body>
 </html>
 
