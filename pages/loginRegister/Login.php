@@ -7,11 +7,11 @@ $pl_login = $_POST;
 
 if(isset($bdd)){
     $_SESSION["erreur"] = null;
-    if (isset($pl_login['mdp']) AND isset($pl_login['email'])){
-        $password = htmlspecialchars($_POST['mdp']);
+    if (isset($pl_login['u_password']) AND isset($pl_login['u_email'])){
+        $password = htmlspecialchars($_POST['u_password']);
         $liste = getListe($bdd,'user',Array("u_email" => $pl_login['u_email']),Array(),'u_password,u_id');
         if(!empty($liste)){
-            if(count($liste)==1 && password_verify($password,$liste[0]->mdp)){
+            if(count($liste)==1 && password_verify($password,$liste[0]->u_password)){
                 $idClient = $liste[0]->u_id;
                 $_SESSION['idClient'] = $idClient;
                 header('Location: ../index.php');
@@ -28,7 +28,9 @@ if(isset($bdd)){
             $_SESSION["erreur"] = 3;
         }
     }
+    header('Location: ../Inscription.php');
 }else {
     $_SESSION["erreur"] = 7;
+    header('Location: ../Inscription.php');
 }
-header('Location: ../index.php');
+

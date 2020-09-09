@@ -15,7 +15,8 @@ $bdd = getDataBase();
 $pageAdmin = null;
 $admin = false;
 
-echo '<!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -23,11 +24,23 @@ echo '<!DOCTYPE html>
     <link rel="stylesheet" href="../css/header.css">
   </head>
   <body>
+
+<?php
+    afficherErreur();
+    var_dump($idClient);
+    ?>
     <div class="container">
       <div class="menu">
         <div id="accueil"><a href="index.php"><span>ACCUEIL</span></a></div>
         <div id="exemple"><span>RENSEIGNEMENTS</span></div>
         <div id="boutique"><span>CONTACT</span></div>
-        <div id="contact"><a href="Inscription.php"><span>CONNEXION</span></a></div>
+          <?php
+          if($idClient == null) {
+              echo '<div id="contact"><a href="Inscription.php"><span>CONNEXION</span></a></div>';
+          } else {
+              echo '<div id="contact"><a href="loginRegister/logOut.php"><span>Se déconnecter</span></a></div>';
+          }
+
+          ?>
+
       </div>
-';

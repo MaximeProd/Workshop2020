@@ -6,33 +6,43 @@ require 'patern/Head.php';
 //Completion des listes pour les éviter les erreurs si elle sont vide
 
 
-echo' 
+echo '
   <link rel="stylesheet" href="../css/LoginRegister.css"
-  <body>
     <div class="container right-panel-active">
       <!-- Sign Up -->
       <div class="container__form container--signup">
-        <form action="#" class="form" id="form1">
+        <form action="loginRegister/Register.php" method ="post" class="form">
           <h2 class="form__title">S\'inscrire</h2>
-          <input type="text" name="u_last_name" placeholder="Nom" class="input" required="required" />
-          <input type="text" name="u_name" placeholder="Prenom" class="input" required="required">
-          <input type="text" name="u_city" placeholder="Ville" class="input" required="required">
-          <input type="text" name="u_codePostal" placeholder="Code postal" class="input" required="required">
-          <input type="email" name="u_email" placeholder="Email" class="input" required="required" />
-          <input type="password" name="u_password" placeholder="Mot de passe" class="input" required="required" />
-          <input type="password" name="comfirmdp" placeholder="Confirmer votre mot de passe" class="input" required="required" />
-          <button class="btn">S\'inscrire</button>
+          <input type="text" name="u_name" placeholder="Prenom" class="input" required>  
+          <input type="text" name="u_last_name" placeholder="Nom" class="input" required>
+          <input type="email" name="u_email" placeholder="Email" class="input" required>
+          <input type="password" name="u_password" placeholder="Mot de passe" class="input" required>
+          <input type="password" name="confirmMdp" placeholder="Confirmer votre mot de passe" class="input" required>
+        <select name="c_id" class="input" required>
+            <option >Sélectionner une ville</option>
+';
+
+            $cities = getListe($bdd, 'city', Array(), Array(), '*');
+            foreach ($cities as $city) {
+
+                echo '<option value="' . $city->c_id . '" >' . $city->c_name . '</option>';
+
+            }
+            echo '
+        </select>
+          
+          <input type="submit" class="btn" value="S\'inscrire"/>
         </form>
       </div>
 
       <!-- Sign In -->
       <div class="container__form container--signin">
-        <form action="#" class="form" id="form2">
-          <h2 class="form__title">Se connecter</h2>
-          <input type="email" name="u_email" placeholder="Email" class="input" required="required" />
-          <input type="password" name="mdp" placeholder="Mot de passe" class="input" required="required" />
-          <a href="#" class="link">Mot de passe oublié?</a>
-          <button class="btn">Se connecter</button>
+      <h2 class="form__title">Se connecter</h2>
+        <form action="loginRegister/Login.php" method ="post" class="form" >
+          
+          <input type="email" name="u_email" placeholder="Email" class="input" required>
+          <input type="password" name="u_password" placeholder="Mot de passe" class="input" required />
+          <input type="submit" class="btn" value="Se connecter">
         </form>
       </div>
 
@@ -48,7 +58,8 @@ echo'
         </div>
       </div>
     </div>
-    <script src="../Javascript" charset="utf-8"></script>
+   
+    <script src="../Javascript/Js.js" charset="utf-8"></script>
   </body>
  </html>
 ';
