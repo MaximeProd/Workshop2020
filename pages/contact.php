@@ -23,7 +23,7 @@ echo '
 
                            <!--Contact Form-->
                            <div class="contact-form">
-                               <form method="post" action="sendemail.php" id="contact-form">
+                               <form method="post" action="#" id="contact-form">
                                    <div class="row clearfix">
                                        <div class="form-group col-md-6 col-sm-6 co-xs-12">
                                            <input type="text" name="Nom" value="" placeholder="Nom" required>

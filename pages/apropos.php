@@ -8,8 +8,8 @@ echo'
         <h1>Notre entreprise</hi>
       </section>
       <section class="section static">
-        <h2>Son but?</h2>
-        <p>Notre entreprise a pour but de lutter contre le réchauffement climatique, comment? En mettant en place diverses solutions pour nos clients et collaborateurs.</p>
+        <h2 id="black">Son but </h2>
+        <p id="black">Notre entreprise a pour but de lutter contre le réchauffement climatique, comment? En mettant en place diverses solutions pour nos clients et collaborateurs.</p>
       </section>
       <section class="section parallax bg2">
         <h2>Comment?</h2>
