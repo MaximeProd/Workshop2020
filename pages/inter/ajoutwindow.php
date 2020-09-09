@@ -15,7 +15,8 @@ if(isset($_POST["card_name"]) && isset($_POST["w_name"]) && isset($_POST["u_id"]
 }
 
 
-if($_SESSION["erreur"] != null){
+if($_SESSION["erreur"] == null){
+    $_SESSION["erreur"] = "La fenêtre a été ajouté avec succée";
     header('Location: ../infos_window_blind.php');
 } else {
     header('Location: ../pageWindow.php');
