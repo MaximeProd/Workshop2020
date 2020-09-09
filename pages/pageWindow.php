@@ -47,7 +47,7 @@ include_once("patern/Head.php");
                 <input class="btn btn-sudo" type="radio" id="Sud-Ouest" name="card_name" value="sud-ouest" hidden>
             </div>
             <input type="hidden" name="u_id" value="<?php echo $idClient; ?>">
-            <input type="submit" name="button" class="bouton" value="Validez votre orientation">
+            <input type="submit" name="button" class="btn button" value="Validez votre orientation">
         </form>
     </div>
   </body>
