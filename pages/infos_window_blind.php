@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/infos_windo_blind.css">
 </head>
 
-<body>
+<div>
 <?php
 
 require_once("Fonction.php");
@@ -294,7 +294,7 @@ if (isset($user_id)){
               </table>";
 
     }
-
+        echo"    <div> <input type=\"button\" value=\"Ajoutez une fenêtre\" class=\"fenetre\"> </div>"
     ?>
 
 </body>
