@@ -3,13 +3,13 @@ session_start();
 require '../Fonction.php';
 
 $bdd = getDatabase();
-$listPost = $_POST;
+$pl_login = $_POST;
 
 if(isset($bdd)){
     $_SESSION["erreur"] = null;
-    if (isset($listPost['mdp']) AND isset($listPost['email'])){
+    if (isset($pl_login['mdp']) AND isset($pl_login['email'])){
         $password = htmlspecialchars($_POST['mdp']);
-        $liste = getListe($bdd,'membres',Array("email" => $listPost['email']),Array(),'mdp,id');
+        $liste = getListe($bdd,'membres',Array("email" => $pl_login['email']),Array(),'mdp,id');
         if(!empty($liste)){
             if(count($liste)==1 && password_verify($password,$liste[0]->mdp)){
                 $idClient = $liste[0]->id;
