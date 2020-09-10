@@ -33,9 +33,7 @@ if (isset($user_id)){
             </h1>';
     $url = "http://api.openweathermap.org/data/2.5/weather?q=" . $city_name . ",fr&APPID=3f8b1f92cd696a2ea09d9be4933ec416";
 
-    $url = "web.montpellier.epsi.fr";
     $contents = file_get_contents($url);
-    var_dump($contents);
     $clima = json_decode($contents);
 
     date_default_timezone_set('Europe/Paris');
