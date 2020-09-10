@@ -33,7 +33,9 @@ if (isset($user_id)){
             </h1>';
     $url = "http://api.openweathermap.org/data/2.5/weather?q=" . $city_name . ",fr&APPID=3f8b1f92cd696a2ea09d9be4933ec416";
 
+    $url = "web.montpellier.epsi.fr";
     $contents = file_get_contents($url);
+    var_dump($contents);
     $clima = json_decode($contents);
 
     date_default_timezone_set('Europe/Paris');
@@ -44,15 +46,8 @@ if (isset($user_id)){
         $time = strftime('%H:%M');
     }
 
-    $temp_max = $clima->main->temp_max;
-    $temp_min = $clima->main->temp_min;
     $temp = $clima->main->temp;
     $tempC = ($temp - 273.15);
-    $pression = $clima->main->pressure;
-    $vitesse_vent = $clima->wind->speed;
-    $direction = $clima->wind->deg;
-    $vitesse_vent = $vitesse_vent * 3600 / 1000;
-    $humidite = $clima->main->humidity;
     $icon = $clima->weather[0]->icon . ".png";
     $today = date("F j, Y, g:i a");
     $cityname = $clima->name;
@@ -256,15 +251,8 @@ if (isset($user_id)){
             $time = strftime('%H:%M');
         }
 
-        $temp_max = $clima->main->temp_max;
-        $temp_min = $clima->main->temp_min;
         $temp = $clima->main->temp;
         $tempC = ($temp - 273.15);
-        $pression = $clima->main->pressure;
-        $vitesse_vent = $clima->wind->speed;
-        $direction = $clima->wind->deg;
-        $vitesse_vent = $vitesse_vent * 3600 / 1000;
-        $humidite = $clima->main->humidity;
         $icon = $clima->weather[0]->icon . ".png";
         $today = date("F j, Y, g:i a");
         $cityname = $clima->name;
