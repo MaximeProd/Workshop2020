@@ -191,3 +191,7 @@ function afficherErreur($erreur = null){
           ';
     }
 }
+
+function deleteWindow($bdd, $u_id, $w_name){
+
+}

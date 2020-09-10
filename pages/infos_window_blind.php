@@ -149,6 +149,7 @@ if (isset($user_id)){
                             $action_window = "Fermer";
                             $action_clim = "Eteindre";
                             $action_chauf = "Allumer";
+                            $action_blind = "Ouvrir";
 
 
                         // température comprise entre 25 et 18°C
@@ -156,6 +157,7 @@ if (isset($user_id)){
                             // température comprise entre 25 et 18°C
                             //echo "Il est " . $hour . "h et il fait " . $tempC . "°C, ouvrir la fenêtre. " . '<br>';
                             $action_window = "Ouvrir";
+                            $action_blind = "Ouvrir";
                             $action_clim = "Eteindre";
                             $action_chauf = "Eteindre";
                             break;
@@ -293,7 +295,8 @@ if (isset($user_id)){
               </table>";
 
     }
-        echo"    <div> <a href='pageWindow.php' type=\"button\" value=\"Ajouter une fenêtre\" class=\"fenetre\">Ajouter une fenêtre</a></div>"
+        echo"    <div> <a href='pageWindow.php' type=\"button\" value=\"Ajouter une fenêtre\" class=\"fenetre\">Ajouter une fenêtre</a></div>";
+        echo"    <div> <a href='suppWindow.php' type=\"button\" value=\"Supprimer une fenêtre\" class=\"supp_button\">Supprimer une fenêtre</a></div>";
     ?>
 
 </body>

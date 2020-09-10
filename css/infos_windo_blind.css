@@ -43,3 +43,23 @@ table{
 .fenetre:hover{
     opacity:0.85;
 }
+
+.supp_button {
+    background: linear-gradient(#ad5e5f, #a53f41);
+    box-shadow: 3px 2px 2px #021B2A;
+    border: none;
+    border-radius: 6px;
+    padding: 2vmin 3vmin;
+    transition: background-color 0.3s;
+    color:white;
+    font-weight:bold;
+    cursor: pointer;
+
+    position: absolute;
+    margin-top: 420px;
+    margin-left: 185px;
+}
+
+.del_name:hover{
+    opacity:0.8;
+}
